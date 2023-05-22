@@ -39,15 +39,18 @@
           </div>
         </div>
     </nav>
+
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
                 <div class="card shadow">
                     <div class="card-header text-bg-danger">
                         <div class="row">
-                            <div class="col"><h3>Category Management</h2></div>
+                            <div class="col">
+                                <h3>Product management</h3>
+                            </div>
                             <div class="col text-end">
-                                <a href="insert-category.html" class="btn btn-warning">Add new category</a>
+                                <a class="btn btn-warning" href="insert-product.html">Add product</a>
                             </div>
                         </div>
                     </div>
@@ -56,25 +59,43 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>id</th>
-                                        <th width="30%">Name</th>
-                                        <th width="30%">Photo</th>
-                                        <th width="10%">is Live</th>
-                                        <th>Operation</th>
+                                        <th width="5%">id</th>
+                                        <th width="10%">Category</th>
+                                        <th width="25%">title</th>
+                                        <th width="10%">photo</th>
+                                        <th width="8%">price</th>
+                                        <th width="5%">Stock</th>
+                                        <th width="5%">Weight</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                      <td>1</td>
-                                      <td>Laptop</td>
-                                      <td>
-                                        <img src="https://picsum.photos/100" class="img-fluid" />
-                                      </td>
-                                      <td>Yes</td>
-                                      <td>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
-                                        <a href="edit-category.html" class="btn btn-warning btn-sm">Edit</a>
-                                      </td>
+                                        <td>1
+                                            <br/>
+                                            <span class="badge bg-primary">Live</span></td>
+                                        </td>
+                                        <td>
+                                          Laptop
+                                         
+                                        </td>
+                                        <td>
+                                          <div>Acer i5 laptop</div> 
+                                          <div class="row mt-2">
+                                            <div class="col-6">
+                                                <a href="#" class="btn btn-danger w-100">Delete</a>
+                                            </div>
+                                            <div class="col-6">
+                                              <a href="#" class="btn btn-warning w-100">Edit</a>
+                                          </div>
+                                          </div>
+                                        <td>
+                                            <img src="https://picsum.photos/100" class="img-fluid" />
+                                        </td>
+                                        <td>85000</td>
+                                        <td>10</td>
+                                        <td>1 kg</td>
+                                        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas unde ipsa, fugiat repudiandae, dolorem tenetur rerum excepturi quo fugit laudantium exercitationem culpa quisquam? Voluptatum alias eius doloribus omnis nulla harum?</td>
                                     </tr>
                                 </tbody>
                             </table>

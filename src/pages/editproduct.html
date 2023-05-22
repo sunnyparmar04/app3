@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Shopping Admi Panel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
+                aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse show" id="navbarDark">
+                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-light fw-bold" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="category.html">Categary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="product.html" tabindex="-1">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="user.html" tabindex="-1">User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="orders.html" tabindex="-1">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-light" href="logout.html" tabindex="-1">Logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card shadow">
+                    <div class="card-heder bg-dark text-light ">
+                        <h3 class="mx-3">Edit Product</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mt-2">
+                                        <input type="text" class="form-control" id="Product tital"
+                                            placeholder="Product tital">
+                                        <label for="Product tital">Edit tital</label>
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mt-2">
+                                        <select class="form-select" id="floatingSelect">
+                                            <option>Select Catogery</option>
+                                            <option value="1">Lep Top</option>
+                                            <option value="2">Mobile</option>
+                                            <option value="3">TV</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col"><label for="formFile" class="form-label">Select Photo</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <div class="form-floating mt-2">
+                                        <input type="number" class="form-control" id="Price"
+                                            placeholder="Price">
+                                        <label for="Price">Price</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mt-2">
+                                        <input type="number" class="form-control" id="stock"
+                                            placeholder="stock">
+                                        <label for="stock">stock</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mt-2">
+                                        <input type="number" class="form-control" id="weight"
+                                            placeholder="weight">
+                                        <label for="weight">weight</label>
+                                    </div></div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col ">
+                                        <legend class="col-form-label col-sm-3">Is It Live</legend>
+                                      <div class="form-check form-check-inline mt-2">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                                        <label class="form-check-label" for="gridRadios1">
+                                          YES
+                                        </label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                        <label class="form-check-label" for="gridRadios2">
+                                          NO
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+                                            <label for="floatingTextarea">Comments</label>
+                                          </div>
+                                          
+                                    </div>
+                                    <div class="col"><button type="button" class="btn btn-primary w-100 mt-5">Save and change</button></div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

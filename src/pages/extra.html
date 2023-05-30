@@ -1,110 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online shop - admin panel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-</head>
-<body>
-    <nav class="navbar navbar-expand-xl navbar-light bg-light shadow">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Online shop - admin panel</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse show" id="navbarBasic">
-            <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-              <li class="nav-item">
-                <a class="nav-link"  href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="category.html">Category</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product.html">Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="user.html">Users</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="order.html">Orders</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product.html">Logout</a>
-              </li>
-            </ul>
-            
-          </div>
-        </div>
-    </nav>
 
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-12">
-                <div class="card shadow">
-                    <div class="card-header text-bg-danger">
-                        <div class="row">
-                            <div class="col">
-                                <h3>Product management</h3>
-                            </div>
-                            <div class="col text-end">
-                                <a class="btn btn-warning" href="insert-product.html">Add product</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th width="5%">id</th>
-                                        <th width="10%">Category</th>
-                                        <th width="25%">title</th>
-                                        <th width="10%">photo</th>
-                                        <th width="8%">price</th>
-                                        <th width="5%">Stock</th>
-                                        <th width="5%">Weight</th>
-                                        <th>Detail</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1
-                                            <br/>
-                                            <span class="badge bg-primary">Live</span></td>
-                                        </td>
-                                        <td>
-                                          Laptop
-                                         
-                                        </td>
-                                        <td>
-                                          <div>Acer i5 laptop</div> 
-                                          <div class="row mt-2">
-                                            <div class="col-6">
-                                                <a href="#" class="btn btn-danger w-100">Delete</a>
-                                            </div>
-                                            <div class="col-6">
-                                              <a href="#" class="btn btn-warning w-100">Edit</a>
-                                          </div>
-                                          </div>
-                                        <td>
-                                            <img src="https://picsum.photos/100" class="img-fluid" />
-                                        </td>
-                                        <td>85000</td>
-                                        <td>10</td>
-                                        <td>1 kg</td>
-                                        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas unde ipsa, fugiat repudiandae, dolorem tenetur rerum excepturi quo fugit laudantium exercitationem culpa quisquam? Voluptatum alias eius doloribus omnis nulla harum?</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button type="button" onclick="window.print();">Print</button>
+    <table border="2" align="center" width="100%" cellpadding="10">
+        <thead>
+            <tr>
+                <th width="5%">Order <br /> No</th>
+                <th width="10%">Order Date</th>
+                <th>Order Detail</th>
+                <th width="10%">Amount</th>
+                <th width="10%">Status</th>
+                <th width="10%">Payment <br /> Mode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>24-05-2023</td>
+                <td>Ankit Patel <br />
+                    105 - Eva surbhi, Opp aksharwadi <br />
+                    Waghawadi Road - Bhavnagar <br />
+                    Contact No - 9662512857
+                </td>
+                <td>&#8377; 125000</td>
+                <td>Confirmed</td>
+                <td>Cash on delivery</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <h3>Order items</h3>
+    <table  border="2" align="center" width="100%" cellpadding="10">
+        <tr>
+            <thead>
+                <tr class="bg-dark">
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Acer Laptop</td>
+                    <td>50000</td>
+                    <td>1</td>
+                    <td>50000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Washing machine</td>
+                    <td>25000</td>
+                    <td>3</td>
+                    <td>75000</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Total</td>
+                    <td>125000</td>
+                </tr>
+
+            </tbody>
+        </tr>
+    </table>
+
 </body>
+
 </html>

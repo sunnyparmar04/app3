@@ -1,17 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import MyMenu from './MyMenu';
+import Home from './home'
+import Category from './Category';
+import EditCategory from './EditCategory';
+import InsertCategory from './insert_category';
+import Product from './product';
+import EditProduct  from './editproduct';
+import InsertProduct from './insertproduct';
+import Users from './user';
+import Order from './order';
+import OrderDetail from './orders_detail';
+import PritOrder from './print-order';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function Myrouter() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='' element={<MyMenu />}>
+          <Route path='/home' element={<Home />} />
+          <Route path='/Category' element={<Category />} />
+          <Route path='/EditCategory' element={<EditCategory />} />
+          <Route path='insert_category' element={<InsertCategory />} />
+          <Route path='product' element={<Product />} />
+          <Route path='editproduct' element={<EditProduct />}/>
+          <Route path='insertproduct' element={<InsertProduct />}/>
+          <Route path='user' element={<Users />}/>
+          <Route path='order' element={<Order />}/>
+          <Route path='orders_detail' element={<OrderDetail />}/>
+          <Route path='print-order' element={<PritOrder />}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+root.render(<Myrouter />);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

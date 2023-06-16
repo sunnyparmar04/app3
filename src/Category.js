@@ -27,10 +27,10 @@ class Category extends Component {
             // {"id":"79","title":"test","photo":"testphoto.jpg"},
             // {"id":"80","title":"test","photo":"testphoto.jpg"},
             // {"id":"106","title":"diwali colors","photo":"C:fakepath\right_arrow.png"}]
-            var error = data[0]['error']
+            var error = data[0]['error'];
             console.log(error);
             if (error != 'no') {
-                alert(error);
+                alert('error');
             }
             else {
                 var total = data[1]['total'];
@@ -79,7 +79,7 @@ class Category extends Component {
                                             {this.state.Categories.map((category) => {
                                                 return (<tr>
                                                     <td>{category['id']}</td>
-                                                    <td><a className="im" href="../fancybox/im2.jpg"> <img src="../fancybox/im2.jpg" className="img-fluid" /></a></td>
+                                                    <td><a className="im" href="../fancybox/im2.jpg"><img src="../fancybox/im2.jpg" className="img-fluid" /></a></td>
                                                     <td>{category['title']}</td>
                                                     <td>Yes</td>
                                                     <td><a href="EditCategory" className="btn btn-outline-dark ">Edit</a>

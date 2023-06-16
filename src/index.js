@@ -24,14 +24,14 @@ function Myrouter() {
           <Route path='/home' element={<Home />} />
           <Route path='/Category' element={<Category />} />
           <Route path='/EditCategory' element={<EditCategory />} />
-          <Route path='insert_category' element={<InsertCategory />} />
-          <Route path='product' element={<Product />} />
-          <Route path='editproduct' element={<EditProduct />}/>
-          <Route path='insertproduct' element={<InsertProduct />}/>
-          <Route path='user' element={<Users />}/>
-          <Route path='order' element={<Order />}/>
-          <Route path='orders_detail' element={<OrderDetail />}/>
-          <Route path='print-order' element={<PritOrder />}/>
+          <Route path='/insert_category' element={<InsertCategory />} />
+          <Route path='/product' element={<Product />} />
+          <Route path='/editproduct' element={<EditProduct />}/>
+          <Route path='/insertproduct' element={<InsertProduct />}/>
+          <Route path='/user' element={<Users />}/>
+          <Route path='/order' element={<Order />}/>
+          <Route path='/orders_detail/:orderid' element={<OrderDetail />}/>
+          <Route path='/print-order' element={<PritOrder />}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,67 +1,56 @@
- import React, { Component } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
-class OrderDetail extends Component {
+class insertproduct extends Component {
+
     constructor(props) {
         super(props)
-        this.state = {
-            fullname : '',
-            address1 : '',
-            address2 : '',
-            city : '',
-            pincode : '',
-            mobile : '',
-            orderid : '',
-        }
+        this.state = {};
     }
-    componentDidMount()
-    {
-        var url = new URL(window.location.href);
-        var CurrentPage = url.href;
-        var position_of_last_slash = CurrentPage.lastIndexOf("/");
-        var id = CurrentPage.substring(position_of_last_slash+1);
-        this.getOrder(id);
-        this.getOrderDetail(id);
-    }
-    getOrderDetail = (id) => {
-
-    }
-    getOrder = (id) => {
-        var ApiAddress = `https://www.theeasylearnacademy.com/shop/ws/orders.php?id=${id}`;
-        // var self = this;
+    InsertProduct = (e) => {
+        console.log(this.state);
+        var ApiAddress = "https://www.theeasylearnacademy.com/shop/ws/insert_product.php";
+        //name,filename,price,stock,detail (required) 
+        var form = new FormData();
+        form.append('name',this.state.title);
+        form.append('filename',this.state.photo);
+        form.append('price',this.state.price);
+        form.append('stock',this.state.stock);
+        form.append('detail',this.state.detail);
         axios({
-            method: 'get',
-            url: ApiAddress,
-            responseType: 'json'
-        }).then((response)=>{
+            url:ApiAddress,
+            method:'post',
+            responseType:'json', 
+            data:form,  
+        }).then((response) => {
             var data = response.data;
             console.log(data);
+            /*
+                [{"error":"input is missing"}] 
+                [{"error":"no"},{"success":"yes"},{"message":"product inserted"}]
+            */
+
             var error = data[0]['error'];
-            if(error !='no')
-            {
+            if(error != 'no')
                 alert(error);
-            }
-            else
+            else 
             {
-                var total = data[1]['total'];
-                if(total == 0)
-                {
-                    alert('no orders found');
-                }
-                else
-                {
-                    data.splice(0,2); //remove first two object
-                    this.setState({
-                        orderid : data[0]['id'],
-                        fullname : data[0]['fullname'],
-                        address1 : data[0]['address1'],
-                        address2 : data[0]['address2'],
-                        city : data[0]['city'],
-                        pincode : data[0]['pincode'],
-                        amount : data[0]['amount'],
-                    });
-                    // console.log(data[1]);
-                }
+                var message = data[2]['message'];
+                alert(message);
+                var success = data[1]['success'];
+                if(success == 'yes')
+                    window.location = '/product'
             }
+        });
+        e.preventDefault();
+    }
+    ChangeValue = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+    ChangeFile = (e) => {
+        this.setState({
+            [e.target.name]:e.target.files[0],
         });
     }
     render() {
@@ -71,102 +60,84 @@ class OrderDetail extends Component {
                     <div className="col-12">
                         <div className="card shadow">
                             <div className="card-header text-bg-danger">
-                                <h3>Order management</h3>
+                                <h3>Product management</h3>
                             </div>
                             <div className="card-body">
-                                <table className="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th width="5%">Order <br /> No</th>
-                                            <th width="10%">Order Date</th>
-                                            <th>Order Detail</th>
-                                            <th width="10%">Amount</th>
-                                            <th width="10%">Status</th>
-                                            <th width="10%">Payment <br /> Mode</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{this.state.orderid}</td>
-                                            <td>24-05-2023</td>
-                                            <td>{this.state.fullname} <br />
-                                            {this.state.address1}<br />
-                                            {this.state.address2} <br />
-                                                Contact No - 9662512857
-                                            </td>
-                                            <td>₹ {this.state.amount}</td>
-                                            <td>Confirmed</td>
-                                            <td>Cash on delivery</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <h3 className="border-bottom">Order items</h3>
-                                <table className="table table-striped">
-                                    <tbody><tr>
-                                    </tr></tbody><thead>
-                                        <tr className="bg-dark">
-                                            <th className="text-white">Sr No</th>
-                                            <th className="text-white">Name</th>
-                                            <th className="text-end text-white">Price</th>
-                                            <th className="text-end text-white">Quantity</th>
-                                            <th className="text-end text-white">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><a href="product.html">Acer Laptop</a></td>
-                                            <td className="text-end">50000</td>
-                                            <td className="text-end">1</td>
-                                            <td className="text-end">50000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><a href="product.html">Washing machine</a></td>
-                                            <td className="text-end">25000</td>
-                                            <td className="text-end">3</td>
-                                            <td className="text-end">75000</td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={4}>Total</td>
-                                            <td className="text-end">125000</td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={3}>
-                                                <a target="_blank" href="print-order.html" className="btn btn-dark w-100">Print</a>
-                                            </td>
-                                            <td colSpan={2}>
-                                                <form>
-                                                    <div className="row">
-                                                        <div className="col">
-                                                            <div className="form-floating">
-                                                                <select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                                                    <option selected>Select order status</option>
-                                                                    <option value={1}>Confirmed</option>
-                                                                    <option value={2}>Dispatched</option>
-                                                                    <option value={3}>Received</option>
-                                                                    <option value={4}>Canceled</option>
-                                                                    <option value={5}>Return</option>
-                                                                </select>
-                                                                <label htmlFor="floatingSelect">Works with selects</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col">
-                                                            <button type="button" className="btn btn-info w-100">Change order status</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <form onSubmit={this.InsertProduct}>
+                                    <div className="row">
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <div className="form-floating mb-3 mt-3">
+                                                <input type="text" className="form-control" id="title" placeholder="Product title" name="title" onChange={(e) => this.ChangeValue(e)} />
+                                                <label htmlFor="title">Product title
+                                                </label></div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <div className="form-floating mt-3">
+                                                <select className="form-select" id="categoryid" aria-label="Select categoryid" name="categoryid">
+                                                    <option selected>Select categoryid</option>
+                                                    <option value={1}>Laptop</option>
+                                                    <option value={2}>Mobile</option>
+                                                    <option value={3}>TV</option>
+                                                    <option value={4}>Camera</option>
+                                                </select>
+                                                <label htmlFor="categoryid">Select category</label>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <label htmlFor="photo" className="form-label">Default file input</label>
+                                            <input className="form-control" type="file" id="photo" name='photo' onChange={(e) => this.ChangeFile(e)} />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <div className="form-floating mb-3 mt-3">
+                                                <input type="number" className="form-control" id="price" placeholder="Price" name="price" onChange={(e) => this.ChangeValue(e)} />
+                                                <label htmlFor="price">price</label>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <div className="form-floating mb-3 mt-3">
+                                                <input type="number" className="form-control" id="stock" placeholder="Stock" name="stock" onChange={(e) => this.ChangeValue(e)} />
+                                                <label htmlFor="stock" >Stock</label>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <div className="form-floating mb-3 mt-3">
+                                                <input type="number" className="form-control" id="Weight" placeholder="weight" name="weight" onChange={(e) => this.ChangeValue(e)} />
+                                                <label htmlFor="weight">weight</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <p>is Available?</p>
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="status" id="yes" />
+                                                <label className="form-check-label" htmlFor="yes">Yes</label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="status" id="no" />
+                                                <label className="form-check-label" htmlFor="no">No</label>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <div className="form-floating">
+                                                <textarea className="form-control" name="detail" id="detail" style={{ "height": "100px" }} defaultValue={""} onChange={(e) => this.ChangeValue(e)} />
+                                                <label htmlFor="detail">Detail</label>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-4 col-md-4 col-sm-12 col-12">
+                                            <button type="submit" className="btn btn-danger w-100 mt-5">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-//         )
-//     }
-// }
-// export default OrderDetail;
+        )
+    }
+}
+export default insertproduct;

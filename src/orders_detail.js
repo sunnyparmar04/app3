@@ -126,7 +126,7 @@ class OrderDetail extends Component {
                                             <td colSpan={2}>
                                                 <form>
                                                     <div className="row">
-                                                        <d iv className="col">
+                                                        <div className="col">
                                                             <div className="form-floating">
                                                                 <select className="form-select" id="floatingSelect" aria-label="Floating label select example">
                                                                     <option selected>Select order status</option>
@@ -138,7 +138,7 @@ class OrderDetail extends Component {
                                                                 </select>
                                                                 <label htmlFor="floatingSelect">Works with selects</label>
                                                             </div>
-                                                        </d>
+                                                        </div>
                                                         <div className="col">
                                                             <button type="button" className="btn btn-dark w-100">Change order status</button>
                                                         </div>

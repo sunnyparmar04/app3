@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { getApiBaseAddress } from './commonFuncton';
 class Category extends Component {
 
     constructor(props) {
@@ -10,7 +10,7 @@ class Category extends Component {
     }
     componentDidMount() {
         console.log("component did mount is called");
-        var ApiAddress = ("https://theeasylearnacademy.com/shop/ws/category.php");
+        var ApiAddress = getApiBaseAddress()  + `category.php`;
         fetch(ApiAddress).then((response) => response.json()).then((data) => {
             console.log(data);
             // 0{"id":"99","title":"home & furniture","photo":"C:fakepathdownload (2).jpg"},

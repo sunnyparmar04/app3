@@ -13,6 +13,8 @@ import Users from './user';
 import Order from './order';
 import OrderDetail from './orders_detail';
 import PritOrder from './print-order';
+import AdminLogin from './adminLogin';
+import AdminLogout from './adminLogout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,8 +33,10 @@ function Myrouter() {
           <Route path='/user' element={<Users />}/>
           <Route path='/order' element={<Order />}/>
           <Route path='/orders_detail/:orderid' element={<OrderDetail />}/>
-          <Route path='/print-order' element={<PritOrder />}/>
+          <Route path='/adminLogout' element={<AdminLogout />}/>
         </Route>
+          <Route path='/print-order' element={<PritOrder />}/>
+          <Route path='/adminLogin' element={<AdminLogin />}/>          
       </Routes>
     </BrowserRouter>
   );

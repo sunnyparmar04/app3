@@ -1,14 +1,14 @@
-class Person {
+class person {
     constructor(name, age) {
         this.name = name
         this.age = age
     }
-    getInfo() {
+    GetInfo() {
         console.log("my name is", this.name);
         console.log("my age is", this.age);
     }
-    walk() {
+    Walk() {
         console.log("i can walk");
     }
 }
-module.exports = Person;
+module.exports = person;
